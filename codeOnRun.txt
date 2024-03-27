@@ -1,0 +1,27 @@
+DB details:
+
+Table Name: Users
+Schema Name: hessel
+Columns:
+
+id (INT PRIMARY KEY AUTO_INCREMENT): Unique identifier for each user.
+username (VARCHAR(255) UNIQUE): Username for login (should be unique to avoid conflicts).
+email (VARCHAR(255) UNIQUE): User's email address (should be unique for account verification and password reset).
+password_hash (VARCHAR(255)): Hashed version of the user's password (never store plain text passwords).
+first_name (VARCHAR(255)): User's first name.
+last_name (VARCHAR(255)): User's last name.
+profile_picture (VARCHAR(255)): URL path or reference to the user's profile picture (optional).
+isActive (BOOLEAN DEFAULT TRUE): Flag indicating if the user account is active (true) or disabled (false).
+created_at (DATETIME DEFAULT CURRENT_TIMESTAMP): Timestamp of when the user account was created (automatically populated).
+
+CREATE TABLE Users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(255) UNIQUE,
+  email VARCHAR(255) UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  profile_picture VARCHAR(255),
+  isActive BOOLEAN DEFAULT TRUE,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
